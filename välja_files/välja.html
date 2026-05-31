@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1,viewport-fit=cover,user-scalable=no">
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="välja_files/css2.css" rel="stylesheet">
+    <link rel="apple-touch-icon" type="image/jpg" sizes="512x512" href="https://frejaeid-swishero.vercel.app/images/FrejaIcon.png">
+    <link rel="apple-touch-startup-image" href="https://frejaeid-swishero.vercel.app/images/FrejaIcon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta property="og:title" content="Freja">
+    <meta property="og:description" content="Välkommen till våran verision av freja, använd appen ansvarsfullt!">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="välja_files/index.css">
+    <link rel="stylesheet" href="välja_files/other.css">
+    <title>Välja</title>
+    <link rel="manifest" href="https://frejaeid-swishero.vercel.app/manifest.json">
+    <style>
+        .creator-info {
+            position: fixed;
+            bottom: 25px;
+            width: 100%;
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+        .creator-signature {
+            color: #3b3e98;
+            font-size: 16px;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.7);
+            letter-spacing: 1px;
+            font-weight: 500;
+            border-radius: 20px;
+            text-shadow: 1px 1px 2px rgba(59,62,152,0.1);
+            border: 1px solid rgba(59,62,152,0.15);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 2px 8px rgba(59,62,152,0.05);
+            transition: all 0.3s ease;
+        }
+        .creator-signature:hover {
+            transform: translateY(-1px);
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 12px rgba(59,62,152,0.08);
+        }
+        .version-tag {
+            color: #3b3e98;
+            font-size: 13px;
+            font-weight: 400;
+            letter-spacing: 0.8px;
+            padding: 6px 12px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 12px;
+            border: 1px solid rgba(59,62,152,0.1);
+            box-shadow: 0 1px 4px rgba(59,62,152,0.03);
+            transition: all 0.3s ease;
+        }
+        .version-tag:hover {
+            background: rgba(255, 255, 255, 0.7);
+            transform: translateY(-1px);
+        }
+        .menu-container {
+            background: linear-gradient(145deg, rgba(255,255,255,0.9), rgba(255,255,255,0.95));
+            border-radius: 25px;
+            padding: 20px;
+            box-shadow: 0 8px 32px rgba(59,62,152,0.1);
+            backdrop-filter: blur(10px);
+        }
+        .greeting-text {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 18px;
+            color: #3b3e98;
+            font-weight: 500;
+            text-shadow: 1px 1px 2px rgba(59,62,152,0.1);
+            letter-spacing: 0.5px;
+            animation: fadeIn 1s ease-in;
+        }
+        .btn1 {
+            transition: all 0.3s ease;
+            border-radius: 15px;
+            margin: 8px 0;
+            box-shadow: 0 4px 15px rgba(59,62,152,0.05);
+        }
+        .btn1:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(59,62,152,0.1);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="content2">
+        <div class="headText">
+            <a class="iconLeftLink" href="https://frejaeid-swishero.vercel.app/login.html">
+                <img class="iconLeft" src="välja_files/left.png" alt="">
+            </a>
+            <img class="logoImg" src="välja_files/logo.png" alt="">
+        </div>
+        <div class="inputFormContainer">
+            <div class="formContent">
+                <div class="menu-container">
+                    <a href='/' style='width: 90%'>
+                        <button class="btn1" style="padding-right: 20px; color: #000">Visa Mitt Digitala ID 📱</button>
+                    </a>
+                    <a style="width: 90%" href="ändra.html">
+                        <button class="btn1" style="padding-right: 20px; color: #000">Uppdatera Mina ID-Uppgifter ✏️</button>
+                    </a>
+                    <a style="width: 90%" href="mailto:du_kan_inte_skriva_till_oss_här@gmail.com">
+                        <button class="btn1" style="padding-right: 20px; color: #000">Få Support & Hjälp 💬</button>
+                    </a>
+                    <button class="btn1" id="logoutBtn" style="border: 2px solid #fff; padding-right: 20px; background-color: #fff; display: none; width: 90%">Logga Ut & Avsluta Session 🔒</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="creator-info">
+        <div class="creator-signature">
+            Skapad och underhållen av VodkaPosten 🎁
+        </div>
+        <div class="version-tag">
+            BETA Version 0.3 ❄️
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener("load", function() {
+            function handleViewportHeight() {
+                if (window.innerHeight >= 844) {
+                    document.addEventListener("touchmove", preventDefault, { passive: false });
+                } else {
+                    document.removeEventListener("touchmove", preventDefault, { passive: false });
+                }
+            }
+
+            function preventDefault(event) {
+                event.preventDefault();
+            }
+
+            handleViewportHeight();
+            window.addEventListener("resize", handleViewportHeight);
+        });
+    </script>
+    <script type="module" src="välja_files/auth.js"></script>
+    <script src="välja_files/userFunctions.js"></script>
+</body>
+</html>

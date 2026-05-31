@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1,viewport-fit=cover,user-scalable=no">
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="ändra_files/css2.css" rel="stylesheet">
+    <link rel="apple-touch-icon" type="image/jpg" sizes="512x512" href="https://frejaeid-swishero.vercel.app/images/FrejaIcon.png">
+    <link rel="apple-touch-startup-image" href="https://frejaeid-swishero.vercel.app/images/FrejaIcon.png">
+    <meta property="og:title" content="Freja">
+    <meta property="og:description" content="Välkommen till våran verision av freja, använd appen ansvarsfullt!">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="ändra_files/index.css">
+    <link rel="stylesheet" href="ändra_files/other.css">
+    <link rel="manifest" href="https://frejaeid-swishero.vercel.app/manifest.json">
+    <title>Ändra ID</title>
+    <style>
+        .formContent {
+            background: linear-gradient(145deg, rgba(255,255,255,0.9), rgba(255,255,255,0.95));
+            border-radius: 25px;
+            padding: 20px;
+            box-shadow: 0 8px 32px rgba(59,62,152,0.1);
+            backdrop-filter: blur(10px);
+        }
+        input {
+            transition: all 0.3s ease;
+            border-radius: 15px;
+            margin: 8px 0;
+            box-shadow: 0 4px 15px rgba(59,62,152,0.05);
+        }
+        input:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(59,62,152,0.1);
+        }
+        .btn1 {
+            transition: all 0.3s ease;
+            border-radius: 15px;
+            margin: 8px 0;
+            box-shadow: 0 4px 15px rgba(59,62,152,0.05);
+            animation: fadeIn 1s ease-in;
+        }
+        .btn1:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(59,62,152,0.1);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        #previewImage {
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 32px rgba(59,62,152,0.1);
+            margin: 15px 0;
+        }
+        #previewImage:hover {
+            transform: scale(1.02);
+            box-shadow: 0 12px 40px rgba(59,62,152,0.15);
+        }
+    </style>
+</head>
+<body>
+    <div class="content2">
+        <div class="headText">
+            <a class="iconLeftLink" href="välja.html">
+                <img class="iconLeft" src="ändra_files/left.png" alt="">
+            </a>
+            <img class="logoImg" src="ändra_files/logo.png" alt="">
+            <img src="" class="iconRight">
+        </div>
+        <div class="inputFormContainer">
+            <div class="formContent">
+                <input id="btn1" placeholder="Namn:">
+                <input id="btn2" placeholder="Efternamn:">
+                <input id="btn3" placeholder="Ålder" maxlength="2">
+                <input id="btn4" placeholder="Personnummer:" maxlength="11">
+                <div id="Updatenamn"></div>
+                <img src="ändra_files/avatar.png" style="border-radius:50%;width:150px;height:150px;object-fit:cover" id="previewImage" alt="">
+                <input type="file" accept="image/*" id="imageInput" style="display:none">
+                <div style="display:flex;width:100%;margin-top:20px;justify-content:center" class="saveChanges">
+                    <input onclick="saveAndNavigate()" style="background-color:#3b3e98;color:#fff;margin-top:10px;padding-right:20px;max-width:195px" class="btn1" value="Spara Ändringar" id="updateIdSubmit" type="submit">
+                    <input onclick="openImageInput()" style="background-color:#3b3e98;color:#fff;margin-top:10px;padding-right:20px;margin-left:20px;max-width:195px" class="btn1" value="Nytt Foto" type="submit">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        window.addEventListener("load", function() {
+            function handleViewportHeight() {
+                if (window.innerHeight >= 844) {
+                    document.addEventListener("touchmove", preventDefault, { passive: false });
+                } else {
+                    document.removeEventListener("touchmove", preventDefault, { passive: false });
+                }
+            }
+
+            function preventDefault(event) {
+                event.preventDefault();
+            }
+
+            handleViewportHeight();
+            window.addEventListener("resize", handleViewportHeight);
+        });
+    </script>
+    <script type="module" src="ändra_files/auth.js"></script>
+    <script src="ändra_files/userFunctions.js"></script>
+    <script src="ändra_files/sparat.js"></script>
+    <script src="ändra_files/image.js"></script>
+    <script src="index_files/qrGenerator.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+</body>
+</html>
